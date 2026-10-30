@@ -12,9 +12,7 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { ThemeToggle } from "@/components/theme-toggle"
 
-const BrandContextMenu = dynamic(
-  () => import("@/components/brand-context-menu")
-)
+
 
 const CommandMenu = dynamic(() => import("@/components/command-menu"))
 
@@ -52,22 +50,20 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 h-(--header-height) max-w-screen overflow-x-clip bg-background px-2 pt-1">
       <div className="screen-line-top screen-line-bottom mx-auto flex h-full items-center gap-2 border-x border-x-line pr-2 pl-4 group-has-data-[slot=layout-wide]/layout:container after:z-1 sm:gap-4 md:max-w-3xl">
-        <BrandContextMenu>
-  <Link href="/" aria-label="Home">
-    {/* Light mode */}
-    <img
-      src="/images/logo-light.png"
-      alt="Brand"
-      className="h-6 w-auto shrink-0 dark:hidden"
-    />
-    {/* Dark mode */}
-    <img
-      src="/images/logo-dark.png"
-      alt="Brand"
-      className="hidden h-6 w-auto shrink-0 dark:block"
-    />
-  </Link>
-</BrandContextMenu>
+          <Link href="/" aria-label="Home">
+            {/* Light modes */}
+            <img
+              src="/images/logo-light.png"
+              alt="Brand"
+              className="h-6 w-auto shrink-0 dark:hidden"
+            />
+            {/* Dark mode */}
+            <img
+              src="/images/logo-dark.png"
+              alt="Brand"
+              className="hidden h-6 w-auto shrink-0 dark:block"
+            />
+          </Link>
 
         <div className="flex-1" />
 
