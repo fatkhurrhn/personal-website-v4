@@ -78,27 +78,25 @@ export const metadata: Metadata = {
     creator: X_HANDLE,
     images: [SITE_INFO.ogImage],
   },
-  icons: {
+    icons: {
     icon: [
       {
-        url: "https://assets.chanhdai.com/images/favicon.ico",
+        url: "/images/favicon.ico",
         sizes: "32x32",
       },
       {
-        url: "https://assets.chanhdai.com/images/favicon.svg",
-        sizes: "any",
-        type: "image/svg+xml",
-        media: "(prefers-color-scheme: light)",
+        url: "/images/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
       },
       {
-        url: "https://assets.chanhdai.com/images/favicon-dark.svg",
-        sizes: "any",
-        type: "image/svg+xml",
-        media: "(prefers-color-scheme: dark)",
+        url: "/images/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
       },
     ],
     apple: {
-      url: "https://assets.chanhdai.com/images/apple-touch-icon.png",
+      url: "/images/apple-touch-icon.png",
       type: "image/png",
       sizes: "180x180",
     },
