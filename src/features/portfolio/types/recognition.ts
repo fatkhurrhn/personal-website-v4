@@ -6,6 +6,7 @@ export type AwardRecognition = {
   key: string
   /** Raw source date: "YYYY-MM" or "YYYY". */
   date: string
+  isExpanded?: boolean
   award: Award
 }
 

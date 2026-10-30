@@ -16,21 +16,21 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
 
   const [timeString, setTimeString] = useState<string>("")
   const [diffText, setDiffText] = useState<string>("")
-  // Deterministic 12:00 for SSR; the inline script corrects it before paint.
+  // Deterministic 12:00:00 for SSR; the inline script corrects it before paint.
   const [handsPath, setHandsPath] = useState<string>(() =>
-    clockHandsPath(12, 0)
+    clockHandsPath(12, 0, 0)
   )
 
   useEffect(() => {
     const updateTime = () => {
-      const { time, hour, minute, diff } = computeClock(timeZone)
+      const { time, hour, minute, second, diff } = computeClock(timeZone)
       setTimeString(time)
-      setHandsPath(clockHandsPath(hour, minute))
+      setHandsPath(clockHandsPath(hour, minute, second))
       setDiffText(diff)
     }
 
     updateTime()
-    const interval = setInterval(updateTime, 60000)
+    const interval = setInterval(updateTime, 1000)
 
     return () => clearInterval(interval)
   }, [timeZone])
@@ -74,19 +74,22 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
 
 // Serialized via `.toString()` into the pre-hydration script, so it must stay
 // self-contained: globals and arguments only, no module-scope references.
-function clockHandsPath(hour: number, minute: number) {
+function clockHandsPath(hour: number, minute: number, second: number) {
   const h = hour % 12
   const round = (n: number) => Math.round(n * 1000) / 1000
 
-  const minuteAngle = (minute / 60) * 2 * Math.PI
-  const hourAngle = ((h + minute / 60) / 12) * 2 * Math.PI
+  const secondAngle = (second / 60) * 2 * Math.PI
+  const minuteAngle = ((minute + second / 60) / 60) * 2 * Math.PI
+  const hourAngle = ((h + minute / 60 + second / 3600) / 12) * 2 * Math.PI
 
   const hx = round(12 + 3.6 * Math.sin(hourAngle))
   const hy = round(12 - 3.6 * Math.cos(hourAngle))
   const mx = round(12 + 6 * Math.sin(minuteAngle))
   const my = round(12 - 6 * Math.cos(minuteAngle))
+  const sx = round(12 + 7.5 * Math.sin(secondAngle))
+  const sy = round(12 - 7.5 * Math.cos(secondAngle))
 
-  return `M12 12 L${hx} ${hy} M12 12 L${mx} ${my}`
+  return `M12 12 L${hx} ${hy} M12 12 L${mx} ${my} M12 12 L${sx} ${sy}`
 }
 
 // Self-contained (globals only) so it can be serialized via `.toString()` into
@@ -94,14 +97,16 @@ function clockHandsPath(hour: number, minute: number) {
 function computeClock(timeZone: string) {
   const now = new Date()
 
-  const time = new Intl.DateTimeFormat("en-US", {
+  const time = new Intl.DateTimeFormat("en-GB", {
     timeZone,
     hour: "2-digit",
     minute: "2-digit",
-    hour12: true,
+    second: "2-digit",
+    hour12: false,
   }).format(now)
-  const hour = parseInt(time, 10)
-  const minute = parseInt(time.slice(3), 10)
+  const hour = parseInt(time.slice(0, 2), 10)
+  const minute = parseInt(time.slice(3, 5), 10)
+  const second = parseInt(time.slice(6, 8), 10)
 
   // tz offset = (tz wall-clock instant) − (UTC wall-clock instant), each read
   // back as a local Date. In minutes, positive = east of UTC.
@@ -116,7 +121,7 @@ function computeClock(timeZone: string) {
       ? " // same time"
       : ` // ${Math.floor(hoursDiff)}h ${targetOffset > viewerOffset ? "ahead" : "behind"}`
 
-  return { time, hour, minute, diff }
+  return { time, hour, minute, second, diff }
 }
 
 type CurrentLocalTimeItemProps = {
@@ -134,13 +139,13 @@ function runClockScript(
   handsPath: typeof clockHandsPath
 ) {
   try {
-    const { time, diff, hour, minute } = compute(timeZone)
+    const { time, diff, hour, minute, second } = compute(timeZone)
     const t = document.getElementById(ids.time)
     if (t) t.textContent = time
     const d = document.getElementById(ids.diff)
     if (d) d.textContent = diff
     const p = document.getElementById(ids.hands)
-    if (p) p.setAttribute("d", handsPath(hour, minute))
+    if (p) p.setAttribute("d", handsPath(hour, minute, second))
   } catch {}
 }
 

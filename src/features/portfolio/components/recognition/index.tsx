@@ -10,14 +10,14 @@ import { RECOGNITION } from "@/features/portfolio/data/recognition"
 
 import { RecognitionItem } from "./recognition-item"
 
-const ID = "recognition"
+const ID = "certificates-and-badges"
 
 export function Recognition() {
   return (
     <Panel id={ID}>
       <PanelHeader>
         <PanelTitle>
-          <a href={`#${ID}`}>Recognition</a>
+          <a href={`#${ID}`}>Certificates & Badges</a>
           <PanelTitleSup>({RECOGNITION.length})</PanelTitleSup>
           <PanelTitleCopy id={ID} />
         </PanelTitle>

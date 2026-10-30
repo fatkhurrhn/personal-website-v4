@@ -1,31 +1,15 @@
 import { USER } from "@/features/portfolio/data/user"
-
-import { ChanhDaiMarkIsometric } from "./chanhdai-mark-isometric"
-import { DiameterDimension } from "./diameter-dimension"
 import { FlipSentences } from "./flip-sentences"
-import { HandwrittenArrow, HandwrittenNote } from "./handwritten-note"
 import { PronounceMyName } from "./pronounce-my-name"
 import { VerifiedIcon } from "./verified-icon"
 
 export function ProfileHeader() {
   return (
     <div className="screen-line-bottom grid grid-cols-[auto_1fr] grid-rows-[1fr_auto] overflow-y-clip border-x border-x-line after:z-1">
-      <figure className="relative col-span-2 p-2 sm:col-span-1 sm:col-start-2 sm:p-4">
-        <ChanhDaiMarkIsometric />
-
-        {/* w-36 needs ~1088px before the gutter can hold it without clipping,
-            and the mark ignores coarse pointers, so nothing to annotate there. */}
-        <HandwrittenNote
-          className="bottom-20 left-full hidden w-36 flex-col items-start pointer-fine:xl:flex"
-          aria-hidden
-        >
-          <HandwrittenArrow className="-scale-y-100 -rotate-6" />
-          <span className="ml-3 -rotate-6">
-            follows your cursor
-            <span className="block" />
-            click for a sound
-          </span>
-        </HandwrittenNote>
+           <figure className="relative col-span-2 hidden p-2 sm:col-span-1 sm:col-start-2 sm:block sm:p-4 text-balance text-base text-muted-foreground">
+          I craft scalable web and mobile apps with React.js, Next.js, Node.js,
+          and Flutter — turning ideas into seamless, user-centric digital
+          products. 
       </figure>
 
       <div className="flex flex-col sm:row-span-2 sm:row-start-1">
@@ -42,21 +26,9 @@ export function ProfileHeader() {
                 src={USER.avatarMonochrome}
                 alt="Avatar monochrome style"
               />
-              <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-foreground dark:inset-ring-foreground/20" />
-
-              {/* The label assumes size-40 (sm+); the gutter fits it from lg. */}
-              <DiameterDimension
-                className="-z-1 hidden lg:block"
-                diameter={160}
-              />
+              <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-foreground dark:inset-ring-foreground/20" />              
             </div>
           </div>
-          {/* <AvatarLightsToggle className="group/avatar-lights-toggle mx-0.5 my-0.75 flex outline-none">
-            <AvatarLights
-              className="ring-border ring-offset-background group-focus-visible/avatar-lights-toggle:ring-1 group-focus-visible/avatar-lights-toggle:ring-offset-2"
-              variants={USER.avatarVariants}
-            />
-          </AvatarLightsToggle> */}
         </div>
       </div>
 

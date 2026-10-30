@@ -1,4 +1,4 @@
-import { GraduationCapIcon, InfinityIcon } from "lucide-react"
+import { GraduationCapIcon, InfinityIcon, LinkIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import {
@@ -28,7 +28,7 @@ export function EducationItem({ item }: { item: Education }) {
         <span className="size-full -translate-y-2.25 rounded-bl-sm border-b border-l" />
       </div>
 
-      <Collapsible defaultOpen={item.isExpanded} disabled={!item.description}>
+      <Collapsible disabled={!item.description}>
         <CollapsibleTrigger
           className={cn(
             "group block w-full text-left",
@@ -42,7 +42,21 @@ export function EducationItem({ item }: { item: Education }) {
               <GraduationCapIcon />
             </IconTile>
 
-            <h3 className="flex-1 font-medium text-balance">{item.school}</h3>
+            <h3 className="flex-1 font-medium text-balance">
+  {item.schoolUrl ? (
+    <a
+      href={item.schoolUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="link-underline inline-flex items-center gap-1"
+    >
+      {item.school}
+      <LinkIcon className="size-3.5 shrink-0" aria-hidden />
+    </a>
+  ) : (
+    item.school
+  )}
+</h3>
 
             <div className="shrink-0 text-muted-foreground group-data-disabled:hidden [&_svg]:h-lh [&_svg]:w-4">
               <CollapsibleChevronsUpDownIcon duration={0.15} />

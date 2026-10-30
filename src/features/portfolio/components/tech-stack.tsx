@@ -10,7 +10,7 @@ export function TechStack() {
     <Panel id={ID}>
       <PanelHeader>
         <PanelTitle>
-          <a href={`#${ID}`}>Stack</a>
+          <a href={`#${ID}`}>Stack Favorites</a>
           <PanelTitleCopy id={ID} />
         </PanelTitle>
       </PanelHeader>

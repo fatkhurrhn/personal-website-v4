@@ -25,7 +25,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <div className="bg-background pb-[env(safe-area-inset-bottom,0)]" />
       </div>
       <SiteBottomNav />
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </div>
   )
 }

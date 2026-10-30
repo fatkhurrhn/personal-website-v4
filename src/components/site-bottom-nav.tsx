@@ -1,52 +1,131 @@
-import dynamic from "next/dynamic"
+"use client"
 
-import { MOBILE_NAV } from "@/config/site"
+import { useState } from "react"
+import { MessageCircleIcon, SendIcon, XIcon } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { Separator } from "@/components/ui/separator"
-import blocks from "@/registry/__blocks__.json"
-import { BOOKMARKS } from "@/features/bookmark/data"
-import { sortBookmarksNewestFirst } from "@/features/bookmark/lib/sort"
-import type { BookmarkPreview } from "@/features/bookmark/types"
-import { getAllDocs } from "@/features/doc/data/documents"
-import type { DocPreview } from "@/features/doc/types/document"
 
-const CommandMenu = dynamic(() => import("@/components/command-menu"))
-const NavMobile = dynamic(() => import("@/components/nav-mobile"))
+type ChatMessage = {
+  id: number
+  role: "user" | "assistant"
+  content: string
+}
 
 export function SiteBottomNav() {
-  const docs = getAllDocs()
+  const [open, setOpen] = useState(false)
+  const [input, setInput] = useState("")
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    {
+      id: 1,
+      role: "assistant",
+      content: "Hi! Ask me anything about my work, projects, or experience.",
+    },
+  ])
 
-  // Minimize data serialized to client component - only send necessary fields
-  const docPreviews: DocPreview[] = docs.map((doc) => ({
-    slug: doc.slug,
-    title: doc.metadata.title,
-    category: doc.metadata.category,
-  }))
+  async function handleSend() {
+    const text = input.trim()
+    if (!text) return
 
-  const bookmarkPreviews: BookmarkPreview[] = sortBookmarksNewestFirst(
-    BOOKMARKS
-  ).map((bookmark) => ({
-    title: bookmark.title,
-    url: bookmark.url,
-  }))
+    const userMessage: ChatMessage = {
+      id: Date.now(),
+      role: "user",
+      content: text,
+    }
+
+    setMessages((prev) => [...prev, userMessage])
+    setInput("")
+
+    // Placeholder: sambungkan ke AI/API kamu di sini.
+    // Contoh:
+    // const res = await fetch("/api/chat", { method: "POST", body: JSON.stringify({ message: text }) })
+    // const data = await res.json()
+    // setMessages((prev) => [...prev, { id: Date.now() + 1, role: "assistant", content: data.reply }])
+
+    setTimeout(() => {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: Date.now() + 1,
+          role: "assistant",
+          content: "This is a placeholder response. Connect your AI here.",
+        },
+      ])
+    }, 400)
+  }
 
   return (
-    <div
-      className={cn(
-        "fixed! bottom-[calc(--spacing(2)+env(safe-area-inset-bottom,0))] left-1/2 z-50 flex w-fit -translate-x-1/2 items-center rounded-xl bg-popover py-1 pr-1 pl-2.5 shadow-md ring ring-foreground/10 sm:hidden dark:ring-foreground/20",
-        "*:data-[slot=command-menu-trigger]:min-w-20 *:data-[slot=command-menu-trigger]:gap-2 *:data-[slot=command-menu-trigger]:rounded-none *:data-[slot=command-menu-trigger]:border-none *:data-[slot=command-menu-trigger]:bg-transparent *:data-[slot=command-menu-trigger]:px-0 *:data-[slot=command-menu-trigger]:hover:bg-transparent *:data-[slot=command-menu-trigger]:active:scale-none"
+    <>
+      {/* Tombol chat floating di kanan bawah (mobile + desktop) */}
+      <Button
+        size="icon"
+        aria-label={open ? "Close chat" : "Open chat"}
+        onClick={() => setOpen((v) => !v)}
+        className="fixed right-4 bottom-[calc(--spacing(4)+env(safe-area-inset-bottom,0))] z-50 size-12 rounded-full shadow-lg"
+      >
+        {open ? (
+          <XIcon className="size-5" />
+        ) : (
+          <MessageCircleIcon className="size-5" />
+        )}
+      </Button>
+
+      {/* Panel chat di kanan bawah */}
+      {open && (
+        <div className="fixed right-4 bottom-[calc(--spacing(4)+env(safe-area-inset-bottom,0)+3.5rem)] z-50 flex h-[min(70svh,520px)] w-[min(92vw,380px)] flex-col overflow-hidden rounded-2xl border border-line bg-background shadow-2xl">
+          {/* Header */}
+          <div className="flex items-center justify-between border-b border-line px-4 py-3">
+            <span className="text-sm font-medium">Chat</span>
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              aria-label="Close chat"
+              onClick={() => setOpen(false)}
+            >
+              <XIcon className="size-5" />
+            </Button>
+          </div>
+
+          {/* Messages */}
+          <div className="flex-1 space-y-3 overflow-y-auto p-4">
+            {messages.map((message) => (
+              <div
+                key={message.id}
+                className={cn(
+                  "max-w-[85%] rounded-2xl px-3 py-2 text-sm",
+                  message.role === "user"
+                    ? "ml-auto bg-foreground text-background"
+                    : "bg-accent-muted text-foreground"
+                )}
+              >
+                {message.content}
+              </div>
+            ))}
+          </div>
+
+          {/* Input */}
+          <div className="flex items-center gap-2 border-t border-line p-3">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") handleSend()
+              }}
+              placeholder="Type a message…"
+              className="w-full rounded-lg border border-input bg-transparent px-3 py-2 text-sm outline-none placeholder:text-muted-foreground dark:bg-input/30"
+            />
+            <Button
+              size="icon-sm"
+              aria-label="Send"
+              onClick={handleSend}
+              disabled={!input.trim()}
+            >
+              <SendIcon className="size-4" />
+            </Button>
+          </div>
+        </div>
       )}
-    >
-      <CommandMenu
-        docs={docPreviews}
-        blocks={blocks}
-        bookmarks={bookmarkPreviews}
-      />
-      <Separator
-        orientation="vertical"
-        className="mr-1 ml-2.5 data-vertical:h-6 data-vertical:self-center"
-      />
-      <NavMobile items={MOBILE_NAV} />
-    </div>
+    </>
   )
 }

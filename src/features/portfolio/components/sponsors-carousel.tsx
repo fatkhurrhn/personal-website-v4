@@ -1,7 +1,6 @@
 import { LogosCarousel } from "@/registry/components/logos-carousel"
 import { SPONSORS } from "@/features/sponsor/data"
 
-import { HandwrittenArrow, HandwrittenNote } from "./handwritten-note"
 import { Panel } from "./panel"
 
 export function SponsorsCarousel() {
@@ -16,7 +15,7 @@ export function SponsorsCarousel() {
       <div className="flex justify-center">
         <div className="bg-background px-2 py-4">
           <h2 className="text-center text-sm/none font-medium tracking-wide text-muted-foreground uppercase">
-            Proudly supported by
+            Daily tools I use
           </h2>
         </div>
       </div>
@@ -33,7 +32,7 @@ export function SponsorsCarousel() {
         className="grid grid-cols-3 py-2 text-foreground/90 @2xl:hidden"
         aria-hidden
       >
-        {SPONSORS.map((sponsor) => (
+        {SPONSORS.slice(0, 6).map((sponsor) => (
           <sponsor.logo key={sponsor.name} className="h-auto w-full" />
         ))}
       </div>
@@ -45,14 +44,6 @@ export function SponsorsCarousel() {
           ))}
         </LogosCarousel>
       </div>
-
-      <HandwrittenNote
-        className="top-6 right-full mr-3 hidden w-20 flex-col items-end lg:flex"
-        aria-hidden
-      >
-        <span className="-rotate-6">big thanks</span>
-        <HandwrittenArrow className="size-7 -scale-x-100 -rotate-6" />
-      </HandwrittenNote>
     </Panel>
   )
 }
