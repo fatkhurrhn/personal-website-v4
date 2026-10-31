@@ -22,6 +22,7 @@ export const META_THEME_COLORS = {
   dark: "#09090b",
 }
 
+// Thanks @shadcn-ui, @tailwindcss
 export const MAIN_NAV: NavItem<Route>[] = [
   {
     title: "Education",
