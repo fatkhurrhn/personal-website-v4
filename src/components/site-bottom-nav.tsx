@@ -36,12 +36,6 @@ export function SiteBottomNav() {
     setMessages((prev) => [...prev, userMessage])
     setInput("")
 
-    // Placeholder: sambungkan ke AI/API kamu di sini.
-    // Contoh:
-    // const res = await fetch("/api/chat", { method: "POST", body: JSON.stringify({ message: text }) })
-    // const data = await res.json()
-    // setMessages((prev) => [...prev, { id: Date.now() + 1, role: "assistant", content: data.reply }])
-
     setTimeout(() => {
       setMessages((prev) => [
         ...prev,
@@ -56,7 +50,6 @@ export function SiteBottomNav() {
 
   return (
     <>
-      {/* Tombol chat floating di kanan bawah (mobile + desktop) */}
       <Button
         size="icon"
         aria-label={open ? "Close chat" : "Open chat"}
@@ -70,10 +63,8 @@ export function SiteBottomNav() {
         )}
       </Button>
 
-      {/* Panel chat di kanan bawah */}
       {open && (
         <div className="fixed right-4 bottom-[calc(--spacing(4)+env(safe-area-inset-bottom,0)+3.5rem)] z-50 flex h-[min(70svh,520px)] w-[min(92vw,380px)] flex-col overflow-hidden rounded-2xl border border-line bg-background shadow-2xl">
-          {/* Header */}
           <div className="flex items-center justify-between border-b border-line px-4 py-3">
             <span className="text-sm font-medium">Chat</span>
             <Button
@@ -86,7 +77,6 @@ export function SiteBottomNav() {
             </Button>
           </div>
 
-          {/* Messages */}
           <div className="flex-1 space-y-3 overflow-y-auto p-4">
             {messages.map((message) => (
               <div
@@ -103,7 +93,6 @@ export function SiteBottomNav() {
             ))}
           </div>
 
-          {/* Input */}
           <div className="flex items-center gap-2 border-t border-line p-3">
             <input
               type="text"

@@ -2,11 +2,9 @@
 import type { Metadata } from "next"
 import type { ProfilePage, WithContext } from "schema-dts"
 
-import { CARBON_ADS } from "@/config/ads"
 import { JSON_LD_ID } from "@/config/json-ld"
 import { JsonLdScript } from "@/lib/json-ld"
 import { absoluteUrl, cn } from "@/lib/utils"
-import { FloatingCarbonAds } from "@/components/floating-carbon-ads"
 import { Blog } from "@/features/portfolio/components/blog"
 import { Education } from "@/features/portfolio/components/education"
 import { Experiences } from "@/features/portfolio/components/experiences"
@@ -32,7 +30,6 @@ export default function HomePage() {
   return (
     <>
       <JsonLdScript data={getProfilePageJsonLd()} />
-      {CARBON_ADS && <FloatingCarbonAds />}
 
       <div className="[--separator-height:--spacing(8)] **:data-[slot=panel]:scroll-mt-[calc(var(--header-height)+var(--separator-height))]">
         <div className="mx-auto md:max-w-3xl">
@@ -81,8 +78,6 @@ function getProfilePageJsonLd(): WithContext<ProfilePage> {
     "@id": absoluteUrl("/"),
     dateCreated: new Date(USER.dateCreated).toISOString(),
     dateModified: new Date().toISOString(),
-    // Reference the Person defined in the WebSite node (rendered globally in
-    // the root layout) so both blocks resolve to the same entity.
     mainEntity: { "@id": JSON_LD_ID.person },
   }
 }
@@ -96,14 +91,7 @@ function Separator({ className, children }: React.ComponentProps<"div">) {
       )}
     >
       {children}
-      {/* <div
-        className="absolute -top-1.25 -left-1.25 z-2 flex size-2.25 border bg-background"
-        aria-hidden
-      />
-      <div
-        className="absolute -top-1.25 -right-1.25 z-2 flex size-2.25 border bg-background"
-        aria-hidden
-      /> */}
+     
     </div>
   )
 }

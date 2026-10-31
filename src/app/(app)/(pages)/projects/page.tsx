@@ -14,7 +14,7 @@ import {
 const title = "Projects"
 const description = "Open source projects and things I've built."
 
-const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
+const ogImage = "/images/desktop-dark.png"
 
 export const metadata: Metadata = {
   title,

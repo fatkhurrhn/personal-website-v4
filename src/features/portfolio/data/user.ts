@@ -45,7 +45,7 @@ about: `- I'm M. Fatkhurrohman (fathur) — a Fullstack Developer with 3 years o
   avatarMonochrome:
     "/images/profile2.png",
   ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?t=1778602757",
+    "/images/desktop-dark.png",
   namePronunciationUrl: "/audio/fatkhurrhn.mp3",
   timeZone: "Asia/Jakarta",
   keywords: [
