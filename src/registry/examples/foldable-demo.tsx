@@ -12,19 +12,19 @@ import {
 } from "@/registry/components/foldable"
 
 const PROFILE = {
-  username: "ncdai",
-  displayName: "Chánh Đại",
-  jobTitle: "Design Engineer",
-  bio: "Creating with code. Small details matter.",
+  username: "fatkhurrhn",
+  displayName: "M. Fatkhurrohman",
+  jobTitle: "Fullstack Developer",
+  bio: "Building scalable web & mobile apps with React.js, Next.js, and Flutter.",
   pronouns: "he/him",
-  avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
+  avatar: "/images/profile-right.png",
 }
 
 const CONTACTS = [
-  { label: "Web", value: "chanhdai.com" },
-  { label: "GitHub", value: "ncdai" },
-  { label: "X", value: "@iamncdai" },
-  { label: "LinkedIn", value: "ncdai" },
+  { label: "Web", value: "fatkhurrhn.dev" },
+  { label: "GitHub", value: "fatkhurrhn" },
+  { label: "X", value: "@fatkhurrhn" },
+  { label: "LinkedIn", value: "fatkhurrhn" },
 ]
 
 export default function FoldableDemo() {
@@ -49,10 +49,6 @@ export default function FoldableDemo() {
   )
 }
 
-/**
- * Shared by the cover and the page beneath it, so what the lifting cover
- * uncovers lines up with what it just showed.
- */
 function CardFrame({ children }: { children?: ReactNode }) {
   return (
     <div className="flex size-full flex-col p-5">

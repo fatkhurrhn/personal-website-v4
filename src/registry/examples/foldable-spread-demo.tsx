@@ -12,11 +12,11 @@ import {
 } from "@/registry/components/foldable"
 
 const PROFILE = {
-  displayName: "Chánh Đại",
-  jobTitle: "Design Engineer",
-  bio: "Creating with code. Small details matter.",
-  address: "Ho Chi Minh City, Viet Nam",
-  avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
+  displayName: "M. Fatkhurrohman",
+  jobTitle: "Fullstack Developer",
+  bio: "Building scalable web & mobile apps with React.js, Next.js, and Flutter.",
+  address: "Depok, Jawa Barat, Indonesia",
+  avatar: "/images/profile-right.png",
 }
 
 type Post = {
@@ -25,26 +25,31 @@ type Post = {
 }
 
 const POSTS: Post[] = [
-  { title: "Joining Claude for Open Source Program", date: "22.07.2026" },
   {
-    title: "React Wheel Picker joins Vercel Open Source Program",
-    date: "24.07.2025",
-  },
-  { title: "Followed by @shadcn on X", date: "21.06.2025" },
-  {
-    title: "OrcDev discovered the wildest shadcn component libraries ever",
-    date: "27.03.2026",
+    title: "Bangkit Academy 2024 — Cloud Computing Cohort",
+    date: "24.04.2025",
   },
   {
-    title: "OrcDev and Francesco Ciulla reviewed my open source portfolio",
-    date: "04.01.2026",
+    title: "Web Developer at PT Aethera Digital Agency",
+    date: "01.09.2026",
+  },
+  {
+    title: "Assistant Lecturer — Fullstack Web Development",
+    date: "01.03.2026",
+  },
+  {
+    title: "Mobile & Web Developer at LBH Semendawai",
+    date: "01.05.2026",
+  },
+  {
+    title: "Machine Learning with Google Cloud — Dicoding",
+    date: "24.04.2025",
   },
 ]
 
 export default function FoldableSpreadDemo() {
   return (
     <Foldable className="[--foldable-radius:--spacing(6)]">
-      {/* A container one page wide: sizes follow the page, not the screen. */}
       <FoldableStage className="@container/foldable">
         <FoldableInsideRight>
           <SpreadHalf side="right">
@@ -66,7 +71,6 @@ export default function FoldableSpreadDemo() {
   )
 }
 
-/** One page's window onto the two-page inner view. */
 function SpreadHalf({
   side,
   children,
@@ -104,7 +108,6 @@ function OuterView() {
 function InnerView() {
   return (
     <div className="flex size-full flex-col">
-      {/* Spans both pages, like a wallpaper across the crease. */}
       <Cover />
       <div className="grid flex-1 grid-cols-2">
         <Profile className="px-[6.25cqw]">
@@ -173,7 +176,7 @@ function Bio({ className }: { className?: string }) {
 function PostList({ posts, className }: { posts: Post[]; className?: string }) {
   return (
     <div className={className}>
-      <p className="mb-2 font-mono text-xs text-muted-foreground">Blog</p>
+      <p className="mb-2 font-mono text-xs text-muted-foreground">Highlights</p>
       <ul className="border-b">
         {posts.map((post) => (
           <li

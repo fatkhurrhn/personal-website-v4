@@ -12,25 +12,14 @@ export function SiteFooterCad() {
   return (
     <footer className="max-w-screen pb-10 overflow-x-clip px-2">
       <div className="mx-auto border-x border-x-line md:max-w-3xl">
+               
         <div className="px-4 pt-4 text-center font-mono text-sm text-balance text-muted-foreground">
-          <p className="mb-1">Owned by Fatkhurrhn</p>
-          <p className="mb-1">
-            Inspired by tailwindcss.com & ui.shadcn.com
-          </p>
           <p className="mb-6">
-            Special thanks to{" "}
+            Inspired by tailwindcss.com & ui.shadcn.com, based on an open source
+            project on{" "}
             <a
               className="link-underline"
-              href="https://x.com/iamncdai"
-              target="_blank"
-              rel="noopener"
-            >
-              ncdai
-            </a>
-            . The source code{" "}
-            <a
-              className="link-underline"
-              href={SOURCE_CODE_GITHUB_URL}
+              href="https://github.com/ncdai/chanhdai.com"
               target="_blank"
               rel="noopener"
             >
@@ -39,12 +28,11 @@ export function SiteFooterCad() {
             .
           </p>
         </div>
-
         <div className="screen-line-top screen-line-bottom flex flex-wrap items-center justify-center gap-3 px-4 py-3 text-muted-foreground">
           {/* Sponsors & llms.txt */}
           <a
             className="font-mono text-xs font-medium transition-[color] hover:text-foreground"
-            href="/sponsors"
+            href="/"
           >
             Sponsors
           </a>
@@ -56,7 +44,7 @@ export function SiteFooterCad() {
 
           <a
             className="font-mono text-xs font-medium transition-[color] hover:text-foreground"
-            href="/llms.txt"
+            href="/"
             target="_blank"
             rel="noopener"
           >

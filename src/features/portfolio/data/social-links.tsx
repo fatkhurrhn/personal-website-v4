@@ -12,7 +12,7 @@ export const SOCIAL = {
      cv: {
     title: "CV",
     handle: "Google Drive",
-    href: "https://drive.google.com/", // ganti dengan link CV kamu
+    href: "https://drive.google.com/drive/folders/1WOC-IKGs_InjfppoViNf_olVmO3C93X4?usp=sharing", // ganti dengan link CV kamu
     sameAs: false,
     icon: <CvIcon />,
   },

@@ -1,130 +1,103 @@
 import type { TimelineMilestone } from "../types/timeline"
 
-export const TIMELINE_BIRTH_YEAR = 2000
+export const TIMELINE_BIRTH_YEAR = 2003
 
 export const TIMELINE_MILESTONES: TimelineMilestone[] = [
   {
-    year: 2000,
-    content: "Born in Can Tho, Viet Nam.",
+    year: 2003,
+    content:
+      "Born in <b>Tebun, Rangsang, Meranti Islands, Riau</b>, a small village far from the city lights. Grew up in a simple family with big dreams.",
   },
-  { year: 2001 },
-  { year: 2002 },
-  { year: 2003 },
   { year: 2004 },
   { year: 2005 },
-  {
-    year: 2006,
-    content: "Started at Thuan Hung Primary School.",
-  },
+  { year: 2006 },
   { year: 2007 },
   { year: 2008 },
   { year: 2009 },
-  { year: 2010 },
   {
-    year: 2011,
-    content: "Started at Thuan Hung Secondary School.",
+    year: 2010,
+    content:
+      "Started elementary school at <b>SDN 19 Repan</b>. Normal years, normal classes, but always curious about how things worked.",
   },
+  { year: 2011 },
   { year: 2012 },
   { year: 2013 },
-  {
-    year: 2014,
-    content: `Started learning to code and built my first website.
-
-Won awards:
-
-- 1st Prize — Can Tho City Young Informatics Contest 2014
-- Consolation Prize — National Young Informatics Contest 2014
-
-Visited Ha Noi, the capital, for the first time.`,
-  },
-  {
-    year: 2015,
-    content: `Won awards:
-
-- 3rd Prize — Can Tho City Young Informatics Contest 2015
-- Consolation Prize — National Young Informatics Contest 2015
-- Outstanding Student — Most Outstanding Student of the District
-- 2nd Prize — Can Tho City Youth and Children’s Creativity Contest 2015
-- 3rd Prize — Can Tho City Science and Engineering Fair 2015
-
-Visited Thu Dau Mot, Binh Duong for the first time.
-
-Admitted to the specialized Computer Science class at Ly Tu Trong High School for the Gifted.`,
-  },
-  {
-    year: 2016,
-    content: `Won awards:
-
-- Consolation Prize — Can Tho City Young Informatics Contest 2016
-- 1st Prize — Can Tho City Youth and Children’s Creativity Contest 2016
-- 3rd Prize — National Young Informatics Contest 2016
-- Consolation Prize — National Youth and Children’s Creativity Contest 2016
-
-Visited Quy Nhon, Binh Dinh for the first time, and returned to Ha Noi.`,
-  },
+  { year: 2014 },
+  { year: 2015 },
+  { year: 2016 },
   {
     year: 2017,
-    content: `Won awards:
+    content: `Graduated from SDN 19 Repan and continued to <b>SMPN 2 Rangsang</b>.
 
-- 2nd Prize — Can Tho City Outstanding Student Selection Exam 2016-2017
-- Consolation Prize — Can Tho City Young Informatics Contest 2017
-- 3rd Prize — Can Tho City Young Informatics Contest 2017
-- 2nd Prize — Can Tho City Youth and Children’s Creativity Contest 2017
-- Creative Award — Binh Duong Hackathon 2017`,
+- Elected <b>Vice Chairman of the Student Council</b> in grade 8
+- Chosen to deliver a <u>farewell speech</u> on behalf of the graduating class`,
   },
-  {
-    year: 2018,
-    content: `Won awards:
-
-- 1st Prize — Can Tho City Science and Engineering Fair 2018
-- 3rd Prize — Can Tho City Outstanding Student Selection Exam 2017-2018
-- 3rd Prize — National Science and Engineering Fair 2018 (ViSEF)
-- 3rd Prize — Can Tho City Young Informatics Contest 2018
-- 2nd Prize — Can Tho City Youth and Children’s Creativity Contest 2018
-- 3rd Prize — National Young Informatics Contest 2018
-
-Earned direct admission to University of Science, VNUHCM, majoring in Information Systems.
-
-Began freelancing and joined Tung Tung as a UI/UX Designer.
-
-Visited Da Lat, Lam Dong and Ba Ria - Vung Tau for the first time.`,
-  },
+  { year: 2018 },
   {
     year: 2019,
-    content: `Became a Mobile Developer at Tung Tung.
+    content: `Graduated from SMPN 2 Rangsang, then faced a crossroads.
 
-Won 2nd Prize — Business Startup Competition 2019.`,
+- Applied to an <b>IT boarding school in Bogor</b> and, while waiting, enrolled at <b>MAN 1 Selat Panjang</b>
+- A week later, the boarding school announced I passed with a <b>100% full scholarship</b>
+- Withdrew from MAN and chose the IT school: <b>SMK Thursina YBM PLN</b>, majoring in <u>Software Engineering (RPL)</u>
+- Part of the <b>first cohort</b>, balancing coding classes with Quran memorization`,
   },
   {
     year: 2020,
-    content: "Became a Web Developer at Tung Tung.",
+    content:
+      "The pandemic hit during my second year. Classes moved online, but my curiosity about code kept growing.",
   },
-  { year: 2021 },
+  {
+    year: 2021,
+    content: `In grade 11, the school sent us to industry partners for an internship (<b>PKL</b>).
+
+- Placed at a partner in <b>Setiabudi, Jakarta</b> for two months
+- Built a website for a tutoring center called <b>Bimbel Monggo</b>
+- My first real project for a client, from design to deployment`,
+  },
   {
     year: 2022,
-    content: `Joined Simplamo as a Senior Frontend Developer and UI Lead.
+    content: `Graduated from SMK Thursina as the <b>best student of my cohort</b>, both academically and in boarding-school achievements.
 
-Launched [ZaDark](https://zadark.com) — 80K+ downloads, 30K+ active users.
-
-Won Bronze Medal — 10th Design, Manufacturing, and Application Award 2022.`,
+- Accepted at <b>STT Nurul Fikri</b> for a Bachelor's in <u>Information Systems</u>
+- Also applied to UIN Jakarta and UI, but the STT NF announcement came first
+- Started campus life with a mix of excitement and confusion about what "Information Systems" really meant`,
   },
-  { year: 2023 },
+  {
+    year: 2023,
+    content: `Started getting active beyond the classroom.
+
+- Joined campus organizations: religious, multimedia, and <b>Google Student Campus</b>
+- Took on a freelance data labeling project at <b>PT Gyro Laborer</b>
+- Learned that consistency matters more than talent`,
+  },
   {
     year: 2024,
-    content: "Founded [Quaric](https://quaric.com).",
+    content: `A year full of building and learning.
+
+- Freelanced as a web developer at <b>PT Alam Indonesia Raharja (AIR)</b>
+- Joined <b>Bangkit Academy 2024</b> as a <u>Cloud Computing cohort</u>
+- Worked with <b>Lintasarta</b> on a capstone project: an HRD management platform built with React.js and Google Cloud
+- Became an <b>Assistant Lecturer</b> for the Big Data course at STT Nurul Fikri`,
   },
   {
     year: 2025,
-    content: `Open-sourced [chanhdai.com](https://github.com/ncdai/chanhdai.com) — 2.4K+ stars on GitHub.
+    content: `Kept teaching, kept building.
 
-Released [React Wheel Picker](https://react-wheel-picker.chanhdai.com) — 70K+ weekly downloads, selected for the [Vercel OSS Program](https://vercel.com/open-source-program).
-
-Followed by [shadcn](https://x.com/shadcn) on X.`,
+- Assistant Lecturer for <b>Web Programming</b>, guiding students through front-end and back-end basics
+- Completed Bangkit Academy and earned the <b>Google Cloud Computing Foundations</b> certificate
+- Took on freelance web projects and built small apps to sharpen my skills`,
   },
   {
     year: 2026,
-    content: `Joined [shadcncraft](https://shadcncraft.com) as a Design Engineer.
+    content: `The busiest year so far.
 
-Selected for the [Claude for Open Source Program](https://claude.com/contact-sales/claude-for-oss).`,
+- Assistant Lecturer for <b>Fullstack Web Development</b>, mentoring students in React.js, Express.js, and MySQL
+- Built a legal aid management system as a <b>Mobile & Web Developer</b> at <b>LBH Semendawai</b>
+- Worked as a <b>Mobile App Developer</b> at <b>Petani Global</b>, building Flutter features for farmer attendance and harvest tracking
+- Served as <b>Website Administrator & System Maintainer</b> at LBH Semendawai
+- Graduated from STT Nurul Fikri with a <b>GPA of 3.72</b>
+- Sent out <b>700+ job applications</b> across LinkedIn, JobStreet, Dealls, and email
+- Got one reply, and it changed everything: joined <b>PT Aethera Digital Agency</b> as a <u>Web Developer & IT Support</u>`,
   },
 ]
