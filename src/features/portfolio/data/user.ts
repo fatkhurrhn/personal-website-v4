@@ -16,18 +16,18 @@ export const USER: User = {
     "Owner of IG @storythur.",
     "80K+ followers.",
   ],
-  address: "Depok, Jawa Barat, Indonesia",
+  address: "Depok, Jawa Barat",
   phoneNumberB64: "NjI4MjI4NTUxMjgxMw==", // +6282285512813
   emailB64: "ZmF0a2h1cnJobm5AZ21haWwuY29t", // fatkhurrhnn@gmail.com
   website: "https://fatkhurrhn.dev",
   jobTitle: "Web Developer",
   jobs: [
-    {
-      title: "Web Developer",
-      company: "aethera",
-      website: "https://aetheranames.com/",
-      experienceId: "aethera",
-    },
+    // {
+    //   title: "Web Developer",
+    //   company: "aethera",
+    //   website: "https://aetheranames.com/",
+    //   experienceId: "aethera",
+    // },
   ],
 about: `- I'm M. Fatkhurrohman (fathur) — a Fullstack Developer with 3 years of experience building modern web and mobile apps.
 - I work with React.js, Next.js, Node.js, and Flutter, backed by Firebase, Supabase, and MySQL.

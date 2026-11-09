@@ -43,7 +43,8 @@ export default function HomePage() {
           <Separator />
 
           <Hello />
-          <SponsorsCarousel />
+          <Separator />
+          {/* <SponsorsCarousel /> */}
           <Numbers />
           <Separator />          
 
@@ -62,8 +63,8 @@ export default function HomePage() {
           <Recognition />
           <Separator />
 
-          <Blog />
-          <Separator />
+          {/* <Blog />
+          <Separator /> */}
 
         </div>
       </div>

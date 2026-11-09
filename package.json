@@ -1,24 +1,24 @@
 {
-  "name": "chanhdai.com",
+  "name": "fatkhurrhn.dev",
   "version": "0.1.0",
-  "description": "A pixel-perfect dev portfolio and shadcn registry.",
-  "homepage": "https://chanhdai.com",
+  "description": "Building scalable digital experiences and full-stack solutions. Code hard, ship clean",
+  "homepage": "https://fatkhurrhn.dev",
   "license": "MIT",
   "author": {
-    "name": "Nguyen Chanh Dai",
-    "email": "dai@chanhdai.com",
-    "url": "https://github.com/ncdai"
+    "name": "M. Fatkhurrohman",
+    "email": "fatkhurrhnn@gmail.com",
+    "url": "https://github.com/fatkhurrhn"
   },
   "contributors": [
     {
-      "name": "Nguyen Chanh Dai",
-      "email": "dai@chanhdai.com",
-      "url": "https://github.com/ncdai"
+      "name": "M. Fatkhurrohman",
+      "email": "fatkhurrhnn@gmail.com",
+      "url": "https://github.com/fatkhurrhn"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ncdai/chanhdai.com.git"
+    "url": "git+https://github.com/fatkhurrhn/personal-website-v4.git"
   },
   "scripts": {
     "dev": "next dev",

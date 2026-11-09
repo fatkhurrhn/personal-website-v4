@@ -97,7 +97,6 @@ export const TIMELINE_MILESTONES: TimelineMilestone[] = [
 - Worked as a <b>Mobile App Developer</b> at <b>Petani Global</b>, building Flutter features for farmer attendance and harvest tracking
 - Served as <b>Website Administrator & System Maintainer</b> at LBH Semendawai
 - Graduated from STT Nurul Fikri with a <b>GPA of 3.72</b>
-- Sent out <b>700+ job applications</b> across LinkedIn, JobStreet, Dealls, and email
-- Got one reply, and it changed everything: joined <b>PT Aethera Digital Agency</b> as a <u>Web Developer & IT Support</u>`,
+- Joined <b>PT Aethera Digital Agency</b> as a Web Developer`,
   },
 ]

@@ -18,9 +18,10 @@ export const EXPERIENCES: Experience[] = [
     positions: [
       {
         id: "1",
-        title: "Web Developer & IT Support",
+        title: "Web Developer",
         employmentPeriod: {
-          start: "09.2026",
+          start: "08.2026",
+          end: "10.2026",
         },
         employmentType: "Full-time",
         icon: <CodeXmlIcon />,
@@ -33,7 +34,7 @@ export const EXPERIENCES: Experience[] = [
         isExpanded: true,
       },
     ],
-    isCurrentEmployer: true,
+    // isCurrentEmployer: true,
   },
   {
     id: "lbh-semendawai",
